@@ -32,7 +32,8 @@ nav li a {
 }
 
 li a:hover {
-  background-color: #111;
+  background-color: #eae8e8;
+  color: black;
 }
 /* COLUMNS */
 .column {
@@ -50,4 +51,27 @@ li a:hover {
   .column {
     width: 100%;
   }
+}
+/* BUTTONS */
+button {
+  margin:0 auto;
+  width: 30%;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 25px;
+  margin-left: 30%;
+  margin-right: 30%;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: #333; 
+  }
+
+button:hover {
+  background-color: #eae8e8;
+  color: black;
+  font-size: 28px;
 }
