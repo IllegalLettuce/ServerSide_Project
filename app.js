@@ -5,15 +5,14 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');  //mongoose
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-const helpRouter = require('./routes/help');
-const aboutRouter = require('./routes/about');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const bookingRouter = require('./routes/booking');
 
 //connect to database
 const url = 'mongodb://localhost:27017/';
 const connect = mongoose.connect(url);
-connect.then((db) => {
+connect.then((book) => {
   console.log("Connected correctly to server");
 }, (err) => { console.log(err); });
 
@@ -33,8 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/help', helpRouter);
-app.use('/about', aboutRouter);
+app.use('/booking', bookingRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

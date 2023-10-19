@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WokShop - Book</title>
+  </head>
+  <body>
+    <% include partials/navbar.ejs %>
+    <div class="row">
+      <div class="column"></div>
+      <div class="column">
+        <h1>Make a booking</h1>
+        <form action="../models/book.js" method="post">
+
+          <p><label>Enter Full Name</label>
+          <input type="String" name="fullName"></p>
+
+          <p><label>Enter workshop Date</label>
+          <input type="date" name="workshopDate"></p>
+
+          <p><label>Enter workshop Time</label>
+          <input type="time" name="workshopTime"></p>
+
+          <p><button>Submit</button></p>
+
+        </form>
+      </div>
+      <div class="column"></div>
+    </div>
+  </body>
+</html>
