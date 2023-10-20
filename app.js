@@ -3,20 +3,26 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var mongoose = require('mongoose');  //mongoose
+const mongoose = require('mongoose')
+//sets routes
+const indexRouter = require('./routes/index'); 
+const book = require('./models/book');
 
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
-const bookingRouter = require('./routes/booking');
-
-//connect to database
-const url = 'mongodb://localhost:27017/';
+//Connects to database
+const url = 'mongodb://localhost:27017/project';  
 const connect = mongoose.connect(url);
-connect.then((book) => {
-  console.log("Connected correctly to server");
+connect.then((books) => {
+  console.log("Connected correctly to server from app.js");
 }, (err) => { console.log(err); });
 
+//sends form info to database
 
+indexRouter.post('/post-feedback', function (req, res) {
+  connect.then(function() {
+      book.insertMany(req.body);
+  });    
+  res.send('Data received:\n' + JSON.stringify(req.body)); //testing
+});
 
 var app = express();
 
@@ -29,10 +35,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/booking', bookingRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

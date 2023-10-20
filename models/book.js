@@ -10,10 +10,6 @@ var scheme = new Schema({
         type: Date,
         required: true
     },
-    workshopTime: {
-        type: String,
-        required: true
-    }
 
 }, {
     timestamps: true

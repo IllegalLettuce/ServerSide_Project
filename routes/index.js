@@ -5,6 +5,10 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index');
 });
+//Get booking page
+router.get('/book', function(req,res,next){
+  res.render('makeBooking');
+});
 // Get help page
 router.get('/help', function(req, res, next) {
   res.render('help');
@@ -13,9 +17,6 @@ router.get('/help', function(req, res, next) {
 router.get('/about', function(req, res, next) {
   res.render('about');
 });
-
-
-
 
 
 module.exports = router;
