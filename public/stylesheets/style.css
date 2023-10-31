@@ -75,3 +75,8 @@ button:hover {
   color: black;
   font-size: 28px;
 }
+
+/* FORM */
+form input{
+  float: right;
+}

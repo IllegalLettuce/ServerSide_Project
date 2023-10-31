@@ -6,10 +6,26 @@ var scheme = new Schema({
         type: String,
         required: true,
     },
-    workshopDate: {
+    workshopDateTime: {
         type: Date,
         required: true
     },
+    creditCardNum: {
+        type: String,
+        required: true
+    },
+    creditCardCVV: {
+        type: String,
+        required: true
+    },
+    creditCardMonth: {
+        type: String,
+        required: true
+    },
+    creditCardYear: {
+        type: String,
+        required: true
+    }
 
 }, {
     timestamps: true

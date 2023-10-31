@@ -16,13 +16,15 @@ connect.then((books) => {
 }, (err) => { console.log(err); });
 
 //sends form info to database
-
 indexRouter.post('/post-feedback', function (req, res) {
   connect.then(function() {
       book.insertMany(req.body);
   });    
-  res.send('Data received:\n' + JSON.stringify(req.body)); //testing
+  //res.send('Data received:\n' + JSON.stringify(req.body)); //testing
+  res.render("bookingConfirm");
 });
+
+
 
 var app = express();
 

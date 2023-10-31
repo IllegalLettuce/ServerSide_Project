@@ -13,14 +13,40 @@
       <div class="column">
         <h1>Make a booking</h1>
         <form action="/post-feedback" method="post">
-
-          <p><label>Enter Full Name</label>
-          <input type="String" name="fullName"></p>
-
-          <p><label>Enter Workshop Date</label>
-          <input type="date" name="workshopDate"></p>
-
-
+          <p><label>Full Name</label>
+            <input type="String" 
+                    name="fullName" 
+                    placeholder="John Doe">
+          </p>
+          <p><label>Workshop Date</label>
+            <input type="datetime-local" 
+                    name="workshopDateTime">
+          </p>
+          <p><label>Credit Card Number</label>
+            <input type="String" 
+                    name="creditCardNum" 
+                    placeholder="1111222233334444" 
+                    maxlength="16">
+          </p>
+          <p><label>CVC</label>
+            <input type="String" 
+                    name="creditCardCVV" 
+                    placeholder="123" 
+                    maxlength="3">
+          </p>
+          <p><label>Month</label>
+            <input type="String" 
+                    name="creditCardMonth" 
+                    placeholder="05" 
+                    maxlength="2">
+          </p>
+          <p><label>Year</label>
+            <input type="String" 
+                    name="creditCardYear" 
+                    placeholder="2025" 
+                    maxlength="4"
+                    min="2023">
+          </p>
 
           <p><button type="submit">Submit</button></p>
 

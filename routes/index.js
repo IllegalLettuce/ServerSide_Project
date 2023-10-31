@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-// Get home page
+// Get home page that displays bookings
 router.get('/', function(req, res, next) {
   res.render('index');
 });
@@ -17,6 +17,5 @@ router.get('/help', function(req, res, next) {
 router.get('/about', function(req, res, next) {
   res.render('about');
 });
-
 
 module.exports = router;
