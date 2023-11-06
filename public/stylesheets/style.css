@@ -36,11 +36,20 @@ li a:hover {
   color: black;
 }
 /* COLUMNS */
+.columnCentre {
+  float:left;
+  width: 66%;
+  padding: 10px;
+}
+.columnCentreSide {
+  float: left;
+  width: 16.5%;
+  padding: 10px;
+}
 .column {
   float: left;
-  width: 33.33%;
+  width: 33%;
   padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
 }
 .row:after {
   content: "";
@@ -79,4 +88,13 @@ button:hover {
 /* FORM */
 form input{
   float: right;
+}
+
+/* TABLE */
+table, th, td {
+  border: 1px solid black;
+}
+th{
+  border: 2px solid black;
+  width: 10%;
 }

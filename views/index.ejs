@@ -8,14 +8,35 @@
   </head>
   <body>
     <% include partials/navbar.ejs %>
-
     <div class="row">
-      <div class="column"></div>
-      <div class="column">
-
-        <a href="/book"><button>Book</button></a>
+      <div class="columnCentreSide"></div>
+      <div class="columnCentre">
+        <h1>Current Bookings</h1>
+        <table>
+          <tr>
+              <th>Name</th>
+              <th>Date and Time</th>
+              <th>Credit Card Num</th>
+              <th>Credit Card CVV</th>
+              <th>Credit Card Month</th>
+              <th>Credit Card Year</th>
+              <th>Booking Date</th>
+          </tr>
+          <% data.forEach(function(book){ %>
+          <tr>
+              <td><%= book.fullName%></td>
+              <td><%= book.workshopDateTime%></td>
+              <td><%= book.creditCardNum%></td>
+              <td><%= book.creditCardCVV%></td>
+              <td><%= book.creditCardMonth%></td>
+              <td><%= book.creditCardYear%></td>
+              <td><%= book.createdAt%></td>
+          </tr>
+          <% }) %>
+          </table>
+        <br><a href="/book"><button>Book</button></a>
       </div>
-      <div class="column"></div>
+      <div class="columnCentreSide"></div>
     </div>
   </body>
 </html>

@@ -15,16 +15,13 @@ connect.then((books) => {
   console.log("Connected correctly to server from app.js");
 }, (err) => { console.log(err); });
 
-//sends form info to database
+//sends form info to database from makeBooking.ejs page
 indexRouter.post('/post-feedback', function (req, res) {
   connect.then(function() {
       book.insertMany(req.body);
   });    
-  //res.send('Data received:\n' + JSON.stringify(req.body)); //testing
   res.render("bookingConfirm");
 });
-
-
 
 var app = express();
 
