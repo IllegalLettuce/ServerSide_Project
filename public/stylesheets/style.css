@@ -93,8 +93,8 @@ form input{
 /* TABLE */
 table {
   border-collapse: separate;
-  border-spacing: 0 15px;
-  
+  border-spacing: 0 15px; 
+  text-align: center;
 }
 th{
   border: 2px solid black;
@@ -108,4 +108,9 @@ tr#data:hover {
 
 td {
   border: 2px solid black;
+}
+
+td#edit{
+  padding: 0;
+  width: 2%;
 }

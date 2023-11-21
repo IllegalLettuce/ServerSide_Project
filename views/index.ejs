@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/public/javascripts/scripts.js"></script>
     <title>WokShop</title>
   </head>
   <body>
@@ -12,7 +13,7 @@
       <div class="columnCentreSide"></div>
       <div class="columnCentre">
         <h1>Current Bookings</h1>
-        <table>
+        <table id="databaseDisplay">
           <tr>
               <th>Name</th>
               <th>Date and Time</th>
@@ -20,10 +21,10 @@
               <th>Credit Card CVV</th>
               <th>Credit Card Month</th>
               <th>Credit Card Year</th>
-              <th>Booking Date</th>
+              <th>Created Date</th>
           </tr>
           <% data.forEach(function(book){ %>
-          <tr id="data" title="edit">
+          <tr id="data">
               <td><%= book.fullName%></td>
               <td><%= book.workshopDateTime%></td>
               <td><%= book.creditCardNum%></td>
@@ -35,6 +36,7 @@
           <% }) %>
           </table>
         <br><a href="/book"><button>Book</button></a>
+        <br><br><a href="/edit"><button>Edit</button></a>
       </div>
       <div class="columnCentreSide"></div>
     </div>

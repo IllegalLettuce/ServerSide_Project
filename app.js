@@ -21,7 +21,7 @@ indexRouter.post('/post-feedback', function (req, res) {
   connect.then(function() {
       book.insertMany(req.body);
   });    
-  res.render("bookingConfirm");
+  res.render("bookingConfirm", req.body);
 });
 
 var app = express();
