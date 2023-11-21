@@ -91,10 +91,21 @@ form input{
 }
 
 /* TABLE */
-table, th, td {
-  border: 1px solid black;
+table {
+  border-collapse: separate;
+  border-spacing: 0 15px;
+  
 }
 th{
   border: 2px solid black;
   width: 10%;
+  background-color: #333;
+  color:#eae8e8;
+}
+tr#data:hover {
+  box-shadow:0.25em 0.25em  0.25em 0.25em  rgba( 0, 0, 0, 0.4 );;
+}
+
+td {
+  border: 2px solid black;
 }
