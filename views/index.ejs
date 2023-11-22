@@ -17,26 +17,30 @@
           <tr>
               <th>Name</th>
               <th>Date and Time</th>
-              <th>Credit Card Num</th>
+              <!-- <th>Credit Card Num</th>
               <th>Credit Card CVV</th>
               <th>Credit Card Month</th>
-              <th>Credit Card Year</th>
+              <th>Credit Card Year</th> -->
               <th>Created Date</th>
+              <th></th>
           </tr>
           <% data.forEach(function(book){ %>
+          <form action="/about" action="get">
           <tr id="data">
+              <td hidden><%= book.id%></td>
               <td><%= book.fullName%></td>
               <td><%= book.workshopDateTime%></td>
-              <td><%= book.creditCardNum%></td>
-              <td><%= book.creditCardCVV%></td>
+              <!-- <td><%= book.creditCardNum%></td> -->
+              <!-- <td><%= book.creditCardCVV%></td>
               <td><%= book.creditCardMonth%></td>
-              <td><%= book.creditCardYear%></td>
+              <td><%= book.creditCardYear%></td> -->
               <td><%= book.createdAt%></td>
-          </tr>
+              <td><button type="submit">Edit</button></td>
+          </tr></form>
           <% }) %>
           </table>
         <br><a href="/book"><button>Book</button></a>
-        <br><br><a href="/edit"><button>Edit</button></a>
+        <!-- <br><br><a href="/edit"><button>Edit</button></a> -->
       </div>
       <div class="columnCentreSide"></div>
     </div>
