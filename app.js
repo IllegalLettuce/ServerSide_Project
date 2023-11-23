@@ -25,9 +25,10 @@ indexRouter.post('/post-feedback', function (req, res) {
 });
 
 indexRouter.get('/edit', function (req, res, next){
-  const selectedID = req.body.selectedID;
+  const selectedID = req.query;
   connect.then(function(){
   })
+  console.log(selectedID);
   res.render('edit', {selectedID : selectedID });
 });
 
