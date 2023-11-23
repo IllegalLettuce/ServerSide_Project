@@ -25,7 +25,7 @@
               <th></th>
           </tr>
           <% data.forEach(function(book){ %>
-          <form action="/about" action="get">
+          <form action="/edit" action="post">
           <tr id="data">
               <td hidden><%= book.id%></td>
               <td><%= book.fullName%></td>
@@ -35,7 +35,7 @@
               <td><%= book.creditCardMonth%></td>
               <td><%= book.creditCardYear%></td> -->
               <td><%= book.createdAt%></td>
-              <td><button type="submit">Edit</button></td>
+              <td><button type="submit" name="selectedID" value="<%= book.id%>">Edit</button></td>
           </tr></form>
           <% }) %>
           </table>

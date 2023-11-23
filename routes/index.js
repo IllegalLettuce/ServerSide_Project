@@ -7,9 +7,6 @@ router.get('/', async (req, res) => {
   const bookings = await book.find()
   res.render('index', {data:bookings})
 });
-router.get('/edit', function(req, res, next){
-  res.render('edit');
-});
 //Get make a booking page
 router.get('/book', function(req,res,next){
   res.render('makeBooking');

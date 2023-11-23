@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WokShop - Help</title>
+    <title>WokShop - Edit</title>
 </head>
 <body>
     <% include partials/navbar.ejs %>
@@ -12,6 +12,10 @@
         <div class="column"></div>
         <div class="column">
             <h1>Edit</h1>
+            <% data.forEach(function(book){ %>
+                <!-- Where id == selectedID  -->
+                <p><%= book.fullName%></p>
+           <% })> %>
 
         </div>
         <div class="column"></div>

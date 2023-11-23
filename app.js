@@ -24,6 +24,12 @@ indexRouter.post('/post-feedback', function (req, res) {
   res.render("bookingConfirm", req.body);
 });
 
+indexRouter.get('/edit', function (req, res, next){
+  const selectedID = req.body.selectedID;
+  connect.then(function(){
+  })
+  res.render('edit', {selectedID : selectedID });
+});
 
 
 
