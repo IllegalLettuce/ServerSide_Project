@@ -89,6 +89,9 @@ button:hover {
 form input{
   float: right;
 }
+form select{
+  float:right;
+}
 
 /* TABLE */
 table {

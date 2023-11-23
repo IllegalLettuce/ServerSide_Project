@@ -13,34 +13,59 @@
       <div class="column"></div>
       <div class="column">
         <h1>Make a booking</h1>
-        <form action="/post-feedback" method="post">
+        <form action="/post-feedback" method="post" id="createBookingForm">
           <p><label>Full Name</label>
             <input type="String" 
-                    name="fullName" 
+                    name="fullName"
                     placeholder="John Doe">
           </p>
-          <p><label>Workshop Date</label>
-            <input type="datetime-local" 
-                    name="workshopDateTime">
+
+          <p><label>Workshop Time Slot</label>
+            <select id="form" form="createBookingForm" name="workshopTimeSlot">
+              <option value="10:00">10:00</option>
+              <option value="11:00">11:00</option>
+              <option value="12:00">12:00</option>
+              <option value="13:00">13:00</option>
+              <option value="14:00">14:00</option>
+              <option value="15:00">15:00</option>
+              <option value="16:00">16:00</option>
+            </select>
           </p>
+
+          <p><label>Worhsop Date</label>
+            <input type="date" 
+                    name="workshopDate">
+          </p>
+
+          <p><label>Workshop Level</label>
+            <select id="form" form="createBookingForm" name="workshopLevel">
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+              <option value="Chef">Chef</option>
+            </select></p>
+
           <p><label>Credit Card Number</label>
             <input type="String" 
                     name="creditCardNum" 
                     placeholder="1111222233334444" 
                     maxlength="16">
           </p>
+
           <p><label>CVC</label>
             <input type="String" 
                     name="creditCardCVV" 
                     placeholder="123" 
                     maxlength="3">
           </p>
+
           <p><label>Month</label>
             <input type="String" 
                     name="creditCardMonth" 
                     placeholder="05" 
                     maxlength="2">
           </p>
+
           <p><label>Year</label>
             <input type="String" 
                     name="creditCardYear" 

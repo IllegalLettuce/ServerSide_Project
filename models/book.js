@@ -6,8 +6,16 @@ var scheme = new Schema({
         type: String,
         required: true,
     },
-    workshopDateTime: {
+    workshopTimeSlot: {
+        type: String,
+        required: true
+    },
+    workshopDate: {
         type: Date,
+        required: true
+    },
+    workshopLevel: {
+        type: String,
         required: true
     },
     creditCardNum: {
