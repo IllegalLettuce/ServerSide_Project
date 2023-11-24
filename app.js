@@ -17,41 +17,40 @@ const url = 'mongodb://localhost:27017/project';
 const connect = mongoose.connect(url);
 connect.then((books) => {
   console.log("Connected correctly to server from app.js");
-}, (err) => { console.log(err); });
+    }, (err) => { console.log(err); });
 
 
 ///------------------------------ROUTES---------------------------------------------------------
-//sends form info to database from makeBooking.ejs page
+//sends form info to database from makeBooking.ejs page, renders confirmation page
 indexRouter.post('/post-feedback', function (req, res) {
   connect.then(function() {
-      book.insertMany(req.body);
-  });    
-  res.render("bookingConfirm", req.body);
+    const dataSent = req.body;
+      console.log("Data in body =>", dataSent);
+        book.insertMany(req.body);
+          res.render("bookingConfirm", {dataSent: req.body});});    
 });
 //goes to edit page
 indexRouter.post('/edit', async (req, res) => {
   console.log("Workshop ID = >", req.body.selectedID);
-  const selectedBooking = await book.findById(req.body.selectedID);
-  console.log("Selected database =>",selectedBooking);
-  res.render('edit', {data: {booking :selectedBooking}});
+    const selectedBooking = await book.findById(req.body.selectedID);
+      console.log("Selected database =>",selectedBooking);
+        res.render('edit', {data: {booking :selectedBooking}});
 });
-
-
 
 //updates booking
 indexRouter.post('/update', async (req, res) =>{
   console.log("Selected ID to update =>", req.body.selectedIDUpdate);
-  console.log("Data to update =>", req.body)
-  const dataUpdate = req.body;
-  await book.findByIdAndUpdate(req.body.selectedIDUpdate, dataUpdate);
-  res.render('editConfirm');
+    console.log("Data to update =>", req.body)
+      const dataUpdate = req.body;
+        await book.findByIdAndUpdate(req.body.selectedIDUpdate, dataUpdate);
+          res.render('editConfirm');
 })
 
 //deletes workshop booking
 indexRouter.post('/delete', async (req, res) =>{
   console.log("Selected ID to delete =>", req.body.selectedIDDelete);
-  await book.findByIdAndDelete(req.body.selectedIDDelete);
-  res.render('editConfirm');
+    await book.findByIdAndDelete(req.body.selectedIDDelete);
+      res.render('editConfirm');
 })
 //-----------------------------------------------------------------------------------------------
 
