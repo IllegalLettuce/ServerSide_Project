@@ -3,11 +3,14 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var bodyParser = require('body-parser');
+
 
 const mongoose = require('mongoose')
 //sets routes
 const indexRouter = require('./routes/index'); 
 const book = require('./models/book');
+const { type } = require('os');
 
 //Connects to database
 const url = 'mongodb://localhost:27017/project';  
@@ -24,14 +27,30 @@ indexRouter.post('/post-feedback', function (req, res) {
   res.render("bookingConfirm", req.body);
 });
 
-indexRouter.get('/edit', function (req, res, next){
-  const selectedID = req.query;
-  connect.then(function(){
-  })
-  console.log(selectedID);
-  res.render('edit', {selectedID : selectedID });
+
+
+
+indexRouter.post('/edit', async (req, res) => {
+  console.log("Workshop ID = >", req.body.selectedID);
+  const selectedBooking = await book.findById(req.body.selectedID);
+  console.log("Selected database =>",selectedBooking);
+  res.render('edit', {data: {booking :selectedBooking}});
 });
 
+
+
+indexRouter.post('/update', function(req, res, next){
+  connect.then(function() {
+    book.findByIdAndUpdate(req.query.selectedIDUpdate);
+    res.render('editConfirm');
+  })
+})
+
+indexRouter.post('/delete', async (req, res) =>{
+  console.log("Selected ID to delete=>", req.body.selectedIDDelete);
+  await book.findByIdAndDelete(req.body.selectedIDDelete);
+  res.render('editConfirm');
+})
 
 
 var app = express();

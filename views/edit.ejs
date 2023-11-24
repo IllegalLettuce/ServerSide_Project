@@ -11,14 +11,81 @@
     <div class="row">
         <div class="column"></div>
         <div class="column">
-            <h1>Edit</h1>
-            <form>
+            <h1>Edit your booking</h1>
+            <h2>Booking ID: <%= data.booking.id%> </h2>
+            
 
-                <p><%= selectedID%></p>
-    
-                
+            <form action="/update" method="post">
 
-            </form>
+                <p><label>Full Name</label>
+                    <input type="String"
+                            name="fullName"
+                            value="<%= data.booking.fullName %>">
+                </p>
+
+                <p><label>Workshop Time Slot</label>
+                    <select id="form" form="createBookingForm" name="workshopTimeSlot">
+                      <option value="" disabled selected>Select</option>
+                      <option value="10:00">10:00</option>
+                      <option value="11:00">11:00</option>
+                      <option value="12:00">12:00</option>
+                      <option value="13:00">13:00</option>
+                      <option value="14:00">14:00</option>
+                      <option value="15:00">15:00</option>
+                      <option value="16:00">16:00</option>
+                    </select>
+                  </p>
+        
+                  <p><label>Workshop Date</label>
+                    <input type="date" 
+                            name="workshopDate"
+                            value="<%= data.booking.workshopDate%>">    
+                  </p>
+        
+                  <p><label>Workshop Level</label>
+                    <select id="form" form="createBookingForm" name="workshopLevel">
+                      <option value="" disabled selected>Select</option>
+                      <option value="Beginner">Beginner</option>
+                      <option value="Intermediate">Intermediate</option>
+                      <option value="Advanced">Advanced</option>
+                      <option value="Chef">Chef</option>
+                    </select></p>
+        
+                  <p><label>Credit Card Number</label>
+                    <input type="String" 
+                            name="creditCardNum" 
+                            value="<%= data.booking.creditCardNum%>" 
+                            maxlength="16">
+                  </p>
+        
+                  <p><label>CVC</label>
+                    <input type="String" 
+                            name="creditCardCVV" 
+                            value="<%= data.booking.creditCardCVV%>" 
+                            maxlength="3">
+                  </p>
+        
+                  <p><label>Month</label>
+                    <input type="String" 
+                            name="creditCardMonth" 
+                            value="<%= data.booking.creditCardMonth%>"
+                            maxlength="2">
+                  </p>
+        
+                  <p><label>Year</label>
+                    <input type="String" 
+                            name="creditCardYear" 
+                            value="<%= data.booking.creditCardYear%>"
+                            maxlength="4"
+                            min="2023">
+                  </p>
+                  <button type="submit" value="<%= data.booking.id%>" name="selectedIDUpdate">Update</button>
+
+            </form><br>
+                    <form action="/delete" method="post">
+                        <button type="submit" name="selectedIDDelete" value="<%= data.booking.id%>">Delete</button>
+                    </form>
+
           
         </div>
         <div class="column"></div>

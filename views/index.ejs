@@ -21,7 +21,7 @@
               <th></th>
           </tr>
           <% data.forEach(function(book){ %>
-          <form action="/edit" action="post">
+          <form action="/edit" method="post">
           <tr id="data">
               <td hidden><%= book.id%></td>
               <td><%= book.fullName%></td>
