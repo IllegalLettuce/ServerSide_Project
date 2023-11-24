@@ -19,6 +19,8 @@ connect.then((books) => {
   console.log("Connected correctly to server from app.js");
 }, (err) => { console.log(err); });
 
+
+///------------------------------ROUTES---------------------------------------------------------
 //sends form info to database from makeBooking.ejs page
 indexRouter.post('/post-feedback', function (req, res) {
   connect.then(function() {
@@ -26,10 +28,7 @@ indexRouter.post('/post-feedback', function (req, res) {
   });    
   res.render("bookingConfirm", req.body);
 });
-
-
-
-
+//goes to edit page
 indexRouter.post('/edit', async (req, res) => {
   console.log("Workshop ID = >", req.body.selectedID);
   const selectedBooking = await book.findById(req.body.selectedID);
@@ -39,18 +38,24 @@ indexRouter.post('/edit', async (req, res) => {
 
 
 
-indexRouter.post('/update', function(req, res, next){
-  connect.then(function() {
-    book.findByIdAndUpdate(req.query.selectedIDUpdate);
-    res.render('editConfirm');
-  })
+//updates booking
+indexRouter.post('/update', async (req, res) =>{
+  console.log("Selected ID to update =>", req.body.selectedIDUpdate);
+  console.log("Data to update =>", req.body)
+  const dataUpdate = req.body;
+  await book.findByIdAndUpdate(req.body.selectedIDUpdate, dataUpdate);
+  res.render('editConfirm');
 })
 
+//deletes workshop booking
 indexRouter.post('/delete', async (req, res) =>{
-  console.log("Selected ID to delete=>", req.body.selectedIDDelete);
+  console.log("Selected ID to delete =>", req.body.selectedIDDelete);
   await book.findByIdAndDelete(req.body.selectedIDDelete);
   res.render('editConfirm');
 })
+//-----------------------------------------------------------------------------------------------
+
+
 
 
 var app = express();

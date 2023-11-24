@@ -25,7 +25,7 @@
 
                 <p><label>Workshop Time Slot</label>
                     <select id="form" form="createBookingForm" name="workshopTimeSlot">
-                      <option value="" disabled selected>Select</option>
+                      <option value="<%= data.booking.workshopTimeSlot%>"selected><%= data.booking.workshopTimeSlot%></option>
                       <option value="10:00">10:00</option>
                       <option value="11:00">11:00</option>
                       <option value="12:00">12:00</option>
@@ -38,13 +38,12 @@
         
                   <p><label>Workshop Date</label>
                     <input type="date" 
-                            name="workshopDate"
-                            value="<%= data.booking.workshopDate%>">    
+                            name="workshopDate">    
                   </p>
         
                   <p><label>Workshop Level</label>
                     <select id="form" form="createBookingForm" name="workshopLevel">
-                      <option value="" disabled selected>Select</option>
+                      <option value="<%= data.booking.workshopLevel%>"selected><%= data.booking.workshopLevel%></option>
                       <option value="Beginner">Beginner</option>
                       <option value="Intermediate">Intermediate</option>
                       <option value="Advanced">Advanced</option>
