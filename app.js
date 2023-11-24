@@ -3,11 +3,11 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var bodyParser = require('body-parser');
 
-
+//mongoose
 const mongoose = require('mongoose')
-//sets routes
+
+//routes
 const indexRouter = require('./routes/index'); 
 const book = require('./models/book');
 const { type } = require('os');
@@ -18,7 +18,6 @@ const connect = mongoose.connect(url);
 connect.then((books) => {
   console.log("Connected correctly to server from app.js");
     }, (err) => { console.log(err); });
-
 
 ///------------------------------ROUTES---------------------------------------------------------
 //sends form info to database from makeBooking.ejs page, renders confirmation page
@@ -53,10 +52,6 @@ indexRouter.post('/delete', async (req, res) =>{
       res.render('editConfirm');
 })
 //-----------------------------------------------------------------------------------------------
-
-
-
-
 var app = express();
 
 // view engine setup

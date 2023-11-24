@@ -1,3 +1,4 @@
+//Basic routes for pages with limited functionality 
 var express = require('express');
 const book = require('../models/book');
 var router = express.Router();

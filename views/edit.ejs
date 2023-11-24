@@ -1,3 +1,4 @@
+<!-- Page to edit your booking. Includes functionality to update and delete -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,15 +13,12 @@
         <div class="column"></div>
         <div class="column">
             <h1>Edit your booking</h1>
-
             <form action="/update" method="post">
-
                 <p><label>Full Name</label>
                     <input type="String"
                             name="fullName"
                             value="<%= data.booking.fullName %>">
                 </p>
-
                 <p><label>Workshop Time Slot</label>
                     <select id="form" form="createBookingForm" name="workshopTimeSlot">
                       <option value="<%= data.booking.workshopTimeSlot%>"selected><%= data.booking.workshopTimeSlot%></option>
@@ -33,12 +31,10 @@
                       <option value="16:00">16:00</option>
                     </select>
                   </p>
-        
                   <p><label>Workshop Date</label>
                     <input type="date" 
                             name="workshopDate">    
                   </p>
-        
                   <p><label>Workshop Level</label>
                     <select id="form" form="createBookingForm" name="workshopLevel">
                       <option value="<%= data.booking.workshopLevel%>"selected><%= data.booking.workshopLevel%></option>
@@ -54,21 +50,18 @@
                             value="<%= data.booking.creditCardNum%>" 
                             maxlength="16">
                   </p>
-        
                   <p><label>CVC</label>
                     <input type="String" 
                             name="creditCardCVV" 
                             value="<%= data.booking.creditCardCVV%>" 
                             maxlength="3">
                   </p>
-        
                   <p><label>Month</label>
                     <input type="String" 
                             name="creditCardMonth" 
                             value="<%= data.booking.creditCardMonth%>"
                             maxlength="2">
                   </p>
-        
                   <p><label>Year</label>
                     <input type="String" 
                             name="creditCardYear" 
@@ -77,13 +70,13 @@
                             min="2023">
                   </p>
                   <button type="submit" value="<%= data.booking.id%>" name="selectedIDUpdate">Update</button>
+                  <!-- Will update document with fresh data -->
 
             </form><br>
                     <form action="/delete" method="post">
                         <button type="submit" name="selectedIDDelete" value="<%= data.booking.id%>">Delete</button>
                     </form>
-
-          
+                    <!-- Will delete document -->
         </div>
         <div class="column"></div>
       </div>
