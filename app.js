@@ -60,9 +60,9 @@ indexRouter.post('/search', async (req, res) =>{
         {workshopDate: {$lte: new Date(req.body.endDateSearch)}},
         {$text: {$search : (req.body.fullNameSearch)}}          //name
       ]
-    }).count()
+    })
       console.log(results);
-      res.render('reports', {data: results});
+      res.render('reports', {data: results, name: req.body.fullNameSearch});
 });
 
 //-----------------------------------------------------------------------------------------------

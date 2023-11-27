@@ -12,16 +12,16 @@
     <div class="row">
         <div class="column"></div>
         <div class="column">
-            <h1>Reports</h1>
+            <h1>Report for <%= name%> </h1>
             <table id="reports">
                 <tr>
-                    <th>Name</th>
+                    <th>Level</th>
                     <th>Time</th>
                     <th>Date</th>
                 </tr>
                 <% data.forEach(function(data){ %>
                 <tr id="data">
-                    <td><%= data.fullName%></td>
+                    <td><%= data.workshopLevel%></td>
                     <td><%= data.workshopTimeSlot%></td>
                     <td><%= data.workshopDate%></td>
                 </tr>
