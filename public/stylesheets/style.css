@@ -85,6 +85,11 @@ button:hover {
   font-size: 28px;
 }
 
+button#tablebutton {
+  font-size: 25px;
+  width: 50%;
+}
+
 /* FORM */
 form input{
   float: right;

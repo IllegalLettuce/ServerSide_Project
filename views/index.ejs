@@ -19,6 +19,7 @@
               <th>Time</th>
               <th>Date</th>
               <th></th>
+              <th></th>
           </tr>
           <% data.forEach(function(book){ %>
           <form action="/edit" method="post">
@@ -27,8 +28,11 @@
               <td><%= book.workshopTimeSlot%></td>
               <td><%= book.workshopDate%></td>
               <td hidden><%= book.id%></td>
-              <td><button type="submit" name="selectedID" value="<%= book.id%>"> Edit </button></td>
-          </tr></form>
+              <td><button id="tablebutton" type="submit" name="selectedID" value="<%= book.id%>"> Edit </button></form></td>
+              <td><form action="/delete" method="post">
+                <button id="tablebutton" type="submit" name="selectedIDDelete" value="<%= book.id%>">Delete</button>
+              </form></td>
+          </tr>
           <% }) %>
           </table>
         <br><a href="/book"><button>Book</button></a>
