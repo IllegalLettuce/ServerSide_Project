@@ -23,16 +23,16 @@
           <% data.forEach(function(book){ %>
           <form action="/edit" method="post">
           <tr id="data">
-              <td hidden><%= book.id%></td>
               <td><%= book.fullName%></td>
               <td><%= book.workshopTimeSlot%></td>
               <td><%= book.workshopDate%></td>
+              <td hidden><%= book.id%></td>
               <td><button type="submit" name="selectedID" value="<%= book.id%>"> Edit </button></td>
           </tr></form>
           <% }) %>
           </table>
         <br><a href="/book"><button>Book</button></a>
-        <!-- Goes to edit page -->
+        <!-- Goes to edit page, submits the ID of the selected booking -->
       </div>
       <div class="columnCentreSide"></div>
     </div>

@@ -17,7 +17,7 @@
           <p><label>Full Name</label>
             <input type="String" 
                     name="fullName"
-                    placeholder="John Doe">
+                    placeholder="John O'Mahony">
           </p>
           <p><label>Workshop Time Slot</label>
             <select id="form" form="createBookingForm" name="workshopTimeSlot">
@@ -46,26 +46,31 @@
             <input type="String" 
                     name="creditCardNum" 
                     placeholder="1111222233334444" 
-                    maxlength="16">
+                    maxlength="16"
+                    pattern="[0-9]+">
           </p>
           <p><label>CVC</label>
             <input type="String" 
                     name="creditCardCVV" 
                     placeholder="123" 
-                    maxlength="3">
+                    maxlength="3"
+                    pattern="[0-9]+">
+                    
           </p>
           <p><label>Month</label>
             <input type="String" 
                     name="creditCardMonth" 
                     placeholder="05" 
-                    maxlength="2">
+                    maxlength="2"
+                    pattern="[0-9]+">
           </p>
           <p><label>Year</label>
             <input type="String" 
-                    name="creditCardYear" 
+                    name="creditCardYear"
                     placeholder="2025" 
                     maxlength="4"
-                    min="2023">
+                    min="2023"
+                    pattern="[0-9]+">
           </p>
           <!-- Form data is sent to database -->
           <p><button type="submit">Submit</button></p>

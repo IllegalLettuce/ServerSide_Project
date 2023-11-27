@@ -1,0 +1,36 @@
+<!-- Report page, search reports -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WokShop - Reports</title>
+</head>
+<body>
+    <% include partials/navbar.ejs %>
+    <div class="row">
+        <div class="column"></div>
+        <div class="column">
+            <h1>Reports</h1>
+            <table id="reports">
+                <tr>
+                    <th>Name</th>
+                    <th>Time</th>
+                    <th>Date</th>
+                </tr>
+                <% data.forEach(function(book){ %>
+                <tr id="data">
+                    <td><%= data.fullName%></td>
+                    <td><%= data.workshopTimeSlot%></td>
+                    <td><%= data.workshopDate%></td>
+                </tr>
+                <% }) %>
+                </table>
+                <p><%= data.fullName%></p>
+
+        </div>
+        <div class="column"></div>
+      </div>
+</body>
+</html>

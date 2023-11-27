@@ -20,5 +20,9 @@ router.get('/help', function(req, res, next) {
 router.get('/about', function(req, res, next) {
   res.render('about');
 });
+//Get reports/search for reports page
+router.get('/search', function(req,res, next){
+  res.render('search');
+});
 
 module.exports = router;

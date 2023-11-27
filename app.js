@@ -43,14 +43,30 @@ indexRouter.post('/update', async (req, res) =>{
       const dataUpdate = req.body;
         await book.findByIdAndUpdate(req.body.selectedIDUpdate, dataUpdate);
           res.render('editConfirm');
-})
+});
 
 //deletes workshop booking
 indexRouter.post('/delete', async (req, res) =>{
   console.log("Selected ID to delete =>", req.body.selectedIDDelete);
     await book.findByIdAndDelete(req.body.selectedIDDelete);
       res.render('editConfirm');
-})
+});
+//searches database and generates report
+indexRouter.post('/search', async (req, res) =>{
+  console.log("Form =>",req.body);
+    const results = await book.find({
+      $and: [
+        {workshopDate: {$gte: new Date(req.body.startDateSearch)}},
+        {workshopDate: {$lte: new Date(req.body.endDateSearch)}}
+      ]
+    })
+      console.log(results);
+      res.render('reports', {data: results});
+});
+
+
+
+
 //-----------------------------------------------------------------------------------------------
 var app = express();
 
