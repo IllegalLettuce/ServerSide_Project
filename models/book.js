@@ -38,6 +38,7 @@ var scheme = new Schema({
 }, {
     timestamps: true
 });
+scheme.index({fullName: 'text'}); //indexes text
 var book = mongoose.model('Book', scheme);
 
 module.exports = book;

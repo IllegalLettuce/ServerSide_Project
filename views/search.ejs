@@ -15,15 +15,15 @@
             <h1>Reports</h1>
             <form action="/search" method="post" id="searchForm">
                 <p><label>Full Name</label>
-                    <input type="String" name="fullNameSearch" placeholder="Search Full Name.....">
+                    <input type="String" name="fullNameSearch" placeholder="Search Full Name....." required>
                 </p>
                 <p>
                     <label>Start Date</label>
-                    <input type="date" name="startDateSearch">
+                    <input type="date" name="startDateSearch" required>
                 </p>
                 <p>
                     <label>End Date</label>
-                    <input type="date" name="endDateSearch">
+                    <input type="date" name="endDateSearch" required>
                 </p>
                 <button type="submit">Search</button>
             </form>

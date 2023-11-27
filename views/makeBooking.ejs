@@ -17,10 +17,11 @@
           <p><label>Full Name</label>
             <input type="String" 
                     name="fullName"
-                    placeholder="John O'Mahony">
+                    placeholder="John O'Mahony"
+                    required>
           </p>
           <p><label>Workshop Time Slot</label>
-            <select id="form" form="createBookingForm" name="workshopTimeSlot">
+            <select id="form" form="createBookingForm" name="workshopTimeSlot" required>
               <option value="10:00">10:00</option>
               <option value="11:00">11:00</option>
               <option value="12:00">12:00</option>
@@ -32,10 +33,11 @@
           </p>
           <p><label>Worhsop Date</label>
             <input type="date" 
-                    name="workshopDate">
+                    name="workshopDate"
+                    required>
           </p>
           <p><label>Workshop Level</label>
-            <select id="form" form="createBookingForm" name="workshopLevel">
+            <select id="form" form="createBookingForm" name="workshopLevel" required>
               <option value="Beginner">Beginner</option>
               <option value="Intermediate">Intermediate</option>
               <option value="Advanced">Advanced</option>
@@ -47,14 +49,16 @@
                     name="creditCardNum" 
                     placeholder="1111222233334444" 
                     maxlength="16"
-                    pattern="[0-9]+">
+                    pattern="[0-9]+"
+                    required>
           </p>
           <p><label>CVC</label>
             <input type="String" 
                     name="creditCardCVV" 
                     placeholder="123" 
                     maxlength="3"
-                    pattern="[0-9]+">
+                    pattern="[0-9]+"
+                    required>
                     
           </p>
           <p><label>Month</label>
@@ -62,7 +66,8 @@
                     name="creditCardMonth" 
                     placeholder="05" 
                     maxlength="2"
-                    pattern="[0-9]+">
+                    pattern="[0-9]+"
+                    required>
           </p>
           <p><label>Year</label>
             <input type="String" 
@@ -70,7 +75,8 @@
                     placeholder="2025" 
                     maxlength="4"
                     min="2023"
-                    pattern="[0-9]+">
+                    pattern="[0-9]+"
+                    required>
           </p>
           <!-- Form data is sent to database -->
           <p><button type="submit">Submit</button></p>

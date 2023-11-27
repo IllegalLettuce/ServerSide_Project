@@ -56,16 +56,14 @@ indexRouter.post('/search', async (req, res) =>{
   console.log("Form =>",req.body);
     const results = await book.find({
       $and: [
-        {workshopDate: {$gte: new Date(req.body.startDateSearch)}},
-        {workshopDate: {$lte: new Date(req.body.endDateSearch)}}
+        {workshopDate: {$gte: new Date(req.body.startDateSearch)}}, //between date range
+        {workshopDate: {$lte: new Date(req.body.endDateSearch)}},
+        {$text: {$search : (req.body.fullNameSearch)}}          //name
       ]
-    })
+    }).count()
       console.log(results);
       res.render('reports', {data: results});
 });
-
-
-
 
 //-----------------------------------------------------------------------------------------------
 var app = express();
