@@ -51,20 +51,22 @@ indexRouter.post('/delete', async (req, res) =>{
     await book.findByIdAndDelete(req.body.selectedIDDelete);
       res.render('editConfirm');
 });
+
 //searches database and generates report
 indexRouter.post('/search', async (req, res) =>{
   console.log("Form =>",req.body);
-    const results = await book.find({
+    const query = ({
       $and: [
-        {workshopDate: {$gte: new Date(req.body.startDateSearch)}}, //between date range
-        {workshopDate: {$lte: new Date(req.body.endDateSearch)}},
-        {$text: {$search : (req.body.fullNameSearch)}}          //name
-      ]
-    })
-      console.log(results);
-      res.render('reports', {data: results, name: req.body.fullNameSearch});
+        {workshopDate: {$gte: new Date(req.body.startDateSearch)}},     //between date range and == name
+        {workshopDate: {$lte: new Date(req.body.endDateSearch)}},    
+        {$text: {$search : (req.body.fullNameSearch)}}               
+      ]});
+        const results = await book.find(query);
+          console.log(results);
+              const counts = await book.find(query).count();
+                console.log("counts =====", counts);
+                  res.render('reports', {data: results, name: req.body.fullNameSearch, count: counts});
 });
-
 //-----------------------------------------------------------------------------------------------
 var app = express();
 
