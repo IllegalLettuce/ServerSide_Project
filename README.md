@@ -1,2 +1,1 @@
-Full Stack web development Project
-Achieved project grade of 88.00
+Full Stack web development Project, achieved project grade of 88.00
